@@ -4,19 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Homework 12</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <div class="container">
+      <!-- Форма пошуку -->
+      <form class="form">
+        <label>
+          <input
+            type="text"
+            name="search-text"
+            placeholder="Search images..."
+            required
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+      <!-- Галерея -->
+      <div class="container-gallery">
+        <ul class="gallery"></ul>
+      </div>
 
-    <load src="./partials/footer.html" />
+      <!-- Кнопка Load more -->
+      <button id="load-more" class="hidden">Load more</button>
+
+      <!-- Лоадер -->
+      <div id="loader" class="hidden">
+        <span class="loader"></span>
+      </div>
+    </div>
 
     <script type="module" src="./main.js"></script>
   </body>

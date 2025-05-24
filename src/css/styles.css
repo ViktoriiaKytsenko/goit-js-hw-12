@@ -7,12 +7,215 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+/* Лоадер (контейнер) */
+/* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Форма пошуку */
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.gallery-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item {
+  display: block;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Інформація під фото */
+.info {
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.info p {
+  margin: 4px 0;
+  width: 48%;
+}
+
+/* Кнопка Load more */
+#load-more {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#load-more:hover {
+  background-color: #2980b9;
+}
+
+/* Сховані елементи */
+.hidden {
+  display: none;
+}
+
+/* Лоадер */
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.loader {
+  width: 50px;
+  height: 165px;
+  position: relative;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 16px;
+  height: 16px;
+  background: #ff3d00;
+  border-radius: 50%;
+  animation: bounce 2s linear infinite;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 48px;
+  width: 48px;
+  background: #fff;
+  border-radius: 4px;
+  animation: rotate 2s linear infinite;
+}
+@keyframes bounce {
+  0%,
+  50%,
+  100% {
+    transform: translate(-50%, 0px);
+    height: 20px;
+  }
+  20% {
+    transform: translate(-25%, 85px);
+    height: 28px;
+  }
+  25% {
+    transform: translate(-25%, 110px);
+    height: 12px;
+  }
+  70% {
+    transform: translate(-75%, 85px);
+    height: 28px;
+  }
+  75% {
+    transform: translate(-75%, 108px);
+    height: 12px;
+  }
+}
+@keyframes rotate {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(-90deg);
+  }
+}
+
+/* Стилі для підписів у SimpleLightbox */
+.sl-caption {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 480px) {
+  .sl-caption {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  #load-more {
+    width: 100%;
+  }
+}
