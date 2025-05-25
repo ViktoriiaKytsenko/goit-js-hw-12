@@ -50,17 +50,17 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  loader.classList.remove('hidden');
+  loader.classList.remove();
 }
 
 export function hideLoader() {
-  loader.classList.add('hidden');
+  loader.classList.add();
 }
 
 export function showLoadMoreButton() {
-  loadMoreBtn.classList.remove('hidden');
+  loadMoreBtn.classList.remove();
 }
 
 export function hideLoadMoreButton() {
-  loadMoreBtn.classList.add('hidden');
+  loadMoreBtn.classList.add();
 }
