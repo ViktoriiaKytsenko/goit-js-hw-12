@@ -65,6 +65,8 @@ form.addEventListener('submit', async e => {
 });
 
 loadMoreBtn.addEventListener('click', async () => {
+  if (!currentQuery) return; //  Захист від порожнього запиту
+
   currentPage += 1;
   hideLoadMoreButton();
   showLoader();
@@ -83,7 +85,6 @@ loadMoreBtn.addEventListener('click', async () => {
       showLoadMoreButton();
     }
 
-    // Плавне прокручування
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
