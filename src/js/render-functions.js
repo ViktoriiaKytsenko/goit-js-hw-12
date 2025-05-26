@@ -49,10 +49,18 @@ export function clearGallery() {
   galleryContainer.innerHTML = '';
 }
 
-export function showLoader() {}
+export function showLoader() {
+  loader.classList.remove('hidden');
+}
 
-export function hideLoader() {}
+export function hideLoader() {
+  loader.classList.add('hidden');
+}
 
-export function showLoadMoreButton() {}
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('hidden');
+}
 
-export function hideLoadMoreButton() {}
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.add('hidden');
+}
