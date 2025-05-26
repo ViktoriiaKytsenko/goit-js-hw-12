@@ -38,7 +38,6 @@ form.addEventListener('submit', async e => {
   try {
     const data = await getImagesByQuery(currentQuery, currentPage);
     totalHits = data.totalHits;
-    hideLoader();
 
     if (data.hits.length === 0) {
       iziToast.error({
@@ -53,19 +52,20 @@ form.addEventListener('submit', async e => {
       }
     }
   } catch (error) {
-    hideLoader();
     iziToast.error({
       message: 'Something went wrong. Please try again later.',
       position: 'topRight',
     });
     console.error(error);
+  } finally {
+    hideLoader();
   }
 
   form.reset();
 });
 
 loadMoreBtn.addEventListener('click', async () => {
-  if (!currentQuery) return; //  Захист від порожнього запиту
+  if (!currentQuery) return;
 
   currentPage += 1;
   hideLoadMoreButton();
@@ -73,9 +73,8 @@ loadMoreBtn.addEventListener('click', async () => {
 
   try {
     const data = await getImagesByQuery(currentQuery, currentPage);
-    hideLoader();
-
     createGallery(data.hits);
+
     if (currentPage * 15 >= totalHits) {
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
@@ -94,11 +93,12 @@ loadMoreBtn.addEventListener('click', async () => {
       behavior: 'smooth',
     });
   } catch (error) {
-    hideLoader();
     iziToast.error({
       message: 'Something went wrong. Please try again later.',
       position: 'topRight',
     });
     console.error(error);
+  } finally {
+    hideLoader();
   }
 });

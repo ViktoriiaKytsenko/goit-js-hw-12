@@ -93,7 +93,7 @@ body {
 
 /* Кнопка Load more */
 #load-more {
-  display: block;
+  /* display: block; */
   margin: 0 auto 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -116,13 +116,13 @@ body {
 
 /* Лоадер */
 #loader {
-  display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
 }
 
 .loader {
+  display: flex;
   width: 50px;
   height: 165px;
   position: relative;
